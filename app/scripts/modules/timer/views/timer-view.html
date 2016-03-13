@@ -1,0 +1,27 @@
+<section class="" layout-align="top left" layout="column">
+  <md-input-container class="md-default-theme">
+    <form ng-submit="getUserTime(timevalue)">
+    <label for="search-field">New Timer Duration (seconds)</label>
+    <input type="text" ng-model="timevalue" class="md-input" tabindex="0" id="isearch-field">
+    <md-button class="md-primary submit theme-btn" type="submit">Create Timer</md-button>
+    </form>
+  </md-input-container>
+</section>
+
+<section>
+<md-toolbar>
+    <h2 class="md-toolbar-tools">Current Timers</h2>
+</md-toolbar>
+</section>
+
+<section>
+<md-content layout="row" layout-align="center center">
+ <md-list>
+  <md-list-item ng-repeat="timer in timeCollection">
+  <div class="timer-list">
+      <timer timevalues="timer" removetimer="deleteTimer()"></timer>
+  </div>
+  </md-list-item>
+</md-list>
+</md-content>
+</section>

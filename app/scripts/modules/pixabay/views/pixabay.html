@@ -1,0 +1,35 @@
+<section class="" layout-align="top left" layout="column">
+  <md-input-container class="md-default-theme">
+    <form ng-submit="doSearch(search)">
+    <label for="search-field">Search images</label>
+    <input type="text" ng-model="search" class="md-input" tabindex="0" id="isearch-field">
+    <md-button class="md-primary submit theme-btn" type="submit">Submit</md-button>
+    </form>
+  </md-input-container>
+</section>
+
+<section>
+<md-toolbar layout="row" layout-align="space-between center">
+<div class="results-heading">
+   <h2 class="md-toolbar-tools">Results</h2>
+</div>
+<div class="details-heading">
+   <h2 class="md-toolbar-tools">Details</h2>
+</div>
+</md-toolbar>
+</section>
+
+<section>
+<md-content layout="row" layout-align="top left">
+  <div class="photos-content">
+  <md-list class="detail-info">
+  <md-list-item ng-repeat="img in pixabayAPI.photos.hits track by img.id">
+    <md-card pix-data dataid="{{ img.id }}" datauser="{{ img.user }}" datawidth="{{ img.imageWidth }}" dataheight="{{ img.imageHeight }}">
+      <img class="photos" ng-src="{{ img.webformatURL | imageformat }}" />
+      <h3 class="photo-titles">{{ img.tags }}</h3>
+    </md-card>
+  </md-list-item>
+</md-list>
+</div>
+</md-content>
+</section>

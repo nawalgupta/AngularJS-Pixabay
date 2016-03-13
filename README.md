@@ -1,0 +1,1 @@
+AngularJS material design pixabay and timer implementation.
